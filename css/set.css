@@ -1,0 +1,35 @@
+#ayuda{
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+   width: 360px;
+}
+
+#directorio{
+	padding-top: 30px;
+	padding-bottom: 30px;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.archivo{
+	font-size: 10px;
+
+}
+
+#ficha{
+	margin: 10px;
+	width: auto;
+	height: auto;
+	border:1px solid #cccccc;
+	border-radius:10px;
+	padding-bottom: 7px;
+	background-color: #F7F7F9;	
+	line-height: 4px;
+	padding-left: 10px;
+	padding-right: 10px;	
+}
+
+.added{	
+	width: 250px;
+}
