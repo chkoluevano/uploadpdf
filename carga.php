@@ -72,11 +72,10 @@
       </div>
     <div class="jumbotron">
 		<p class="lead">Pasos para la carga la síntesis informativa a la Applicación Iphone</p>
-    	
 		<form id="frmCampana" name="frmCampana" method="post" class="labels" enctype="multipart/form-data">
 	    <input type="hidden" name="MAX_FILE_SIZE" value="20971520"  />
-	    <b>Paso 1.</b>- Selecciona el PDF de PORTADAS: </br><input type="file" name="archivo" id="portadas"><br/><br/>
-      <b>Paso 2.</b>- Selecciona el PDF de NOTAS: </br><input type="file" name="archivo_notas" id="notas"><br/><br/>
+	    <b>Paso 1.</b>- Selecciona PDF de PORTADAS: </br><input type="file" name="archivo" id="portadas"><br/><br/>
+      <b>Paso 2.</b>- Selecciona PDF de NOTAS: </br><input type="file" name="archivo_notas" id="notas"><br/><br/>
 	    <b>Paso 3.</b>- Click en el boton de Subir<br/><br/>
 	     <span id="botonenviar" class="btn btn-primary btn-large"> SUBIR</span></br><br/>
 	    <b>Paso 4.</b>- Espera un momento sin cerrar el navegador hasta que se te indique.<br/><br/>
@@ -84,6 +83,5 @@
 	     <div id="loader"></div>
 	     <div id="mensaje"></div>
  	</div>
-
 </body>
 </html>

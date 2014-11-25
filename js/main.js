@@ -44,6 +44,7 @@ $(document).ready(function(){
 			            contentType:false,                    
 			            processData:false,
 			         	success: function(data){ 
+			         		console.log(data);
 			         		$('#mensaje').html('');
 			            	var response = $.parseJSON(data);
 			            	response.forEach(function(r){
@@ -51,7 +52,11 @@ $(document).ready(function(){
 			            		if (parseInt(r.code)==1){
 			            			UpdateParse(r.nombre, r.campo);
 			            		}
+			            		else{
+			            			 
+			            		}
 			            	});
+			            	$('#loader').html("");
 			            }
 			   	 	}); 
 				}

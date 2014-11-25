@@ -22,7 +22,7 @@ $rows = array();
 
 	}
 	else{
-		// no se especifico
+		//$rows[] = array('tipo' => "portadas","code"=> 3, "status" => 'produjo un error');
 	}
 
 
@@ -42,7 +42,7 @@ $rows = array();
 			$rows[] = array('tipo' => "notas", "code"=>$code, "status" => $status, "campo"=> "ruta", "nombre"=>$nombre_final);
 	}
 	else{
-		//
+		//$rows[] = array('tipo' => "notas","code"=> 3, "status" => 'produjo un error');
 	}
 	
 /*}
