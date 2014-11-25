@@ -53,7 +53,7 @@ $(document).ready(function(){
 			            			UpdateParse(r.nombre, r.campo);
 			            		}
 			            		else{
-			            			 
+			            			 //
 			            		}
 			            	});
 			            	$('#loader').html("");
