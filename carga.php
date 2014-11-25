@@ -1,19 +1,20 @@
 <?php
 session_start();
   if($_SESSION['dpd']['logeo']==false){
-    header("Location: index.php"); 
-    exit;
+   // header("Location: index.php"); 
+    //exit;
   }
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <title>Sintesis</title>
 	<meta charset="UTF-8">
-	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+	<script src="js/jquery-2.0.3.min.js"></script>
 	<script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-alert.js"></script>
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 	<script src="js/parse-1.2.1.js"></script>
 	<script src="js/main.js"></script>
 	<style type="text/css">
@@ -71,13 +72,14 @@ session_start();
     	
 		<form id="frmCampana" name="frmCampana" method="post" class="labels" enctype="multipart/form-data">
 	    <input type="hidden" name="MAX_FILE_SIZE" value="20971520"  />
-	    <b>Paso 1.</b>- Selecciona el Archivo PDF: </br><input type="file" name="archivo" id="imagen"><br/><br/>
-	    <b>Paso 2.</b>- Click en el boton de Subir<br/><br/>
+	    <b>Paso 1.</b>- Selecciona el PDF de PORTADAS: </br><input type="file" name="archivo" id="portadas"><br/><br/>
+      <b>Paso 2.</b>- Selecciona el PDF de NOTAS: </br><input type="file" name="archivo_notas" id="notas"><br/><br/>
+	    <b>Paso 3.</b>- Click en el boton de Subir<br/><br/>
 	     <span id="botonenviar" class="btn btn-primary btn-large"> SUBIR</span></br><br/>
-	    <b>Paso 3.</b>- Espera un momento sin cerrar el navegador hasta que se te indique.<br/><br/>
+	    <b>Paso 4.</b>- Espera un momento sin cerrar el navegador hasta que se te indique.<br/><br/>
 	    </form>
 	     <div id="loader"></div>
-	     <div id="mensaje" style="color:red;"></div>
+	     <div id="mensaje"></div>
  	</div>
 
 </body>

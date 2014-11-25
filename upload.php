@@ -1,34 +1,61 @@
 <?php
 session_start();
 date_default_timezone_set('America/Mexico_City');
-if($_SESSION['dpd']['logeo']){
-	if($_FILES['archivo']['name']!=""){
-		$nombre_final = uniqid() . "_sintesis" . date('Y-m-d') . ".pdf";
-		if(mover_archivo($_FILES['archivo']['tmp_name'], 'uploads/' . $nombre_final)){
-			echo $nombre_final;
+$res=array();
+$total=0;
+$rows = array();
+//if($_SESSION['dpd']['logeo']){
+	/* Portadas */
+	if(isset($_FILES["portadas"])){
+		$status="";
+		$nombre_final = uniqid() . "_portadas" . date('Y-m-d') . ".pdf";
+		if(mover_archivo($_FILES['portadas']['tmp_name'], 'uploads/' . $nombre_final)){
+			$status="se subío correctamente";		
 		}
 		else{
-			echo "ERROR";
+			$status="produjo un error, sube de nuevo este archivo";
 		}
-		
-	}	
+		$rows[] = array('tipo' => "portadas", "status" => $status, "nombre"=>$nombre_final);
+
+	}
 	else{
-		echo "ERROR";
+		// no se especifico
 	}
 
 
-}
+	/* Notas */
+	if(isset($_FILES["notas"])){
+		$status="";
+		$nombre_final = uniqid() . "_notas" . date('Y-m-d') . ".pdf";
+		if(mover_archivo($_FILES['notas']['tmp_name'], 'uploads/' . $nombre_final)){
+				$status="se subío correctamente";	
+			}
+			else{
+				$status="produjo un error, sube de nuevo este archivo";
+			}
+			$rows[] = array('tipo' => "notas", "status" => $status, "nombre"=>$nombre_final);
+	}
+	else{
+		//
+	}
+	
+/*}
 else{
-	echo "ERROR";
-}
-	function mover_archivo($temporal,$ruta){
+	echo "estas fuera de sesion";
+}*/
+
+
+print_r(json_encode($rows));
+
+
+function mover_archivo($temporal,$ruta){
 		if(move_uploaded_file($temporal, $ruta)){
 			return true;
 		}
 		else{
 			return false;
 		}
-	}
+}
 
 
 ?>
