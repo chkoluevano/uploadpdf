@@ -4,7 +4,7 @@
   if($_POST["entrar"]){
     $strUserName=trim($_POST["email"]);
     $strUserPassword=trim($_POST["clave"]);
-    if ($strUserName=="usrsintesis2014" && $strUserPassword=="pwd2013sintesis"){
+    if ($strUserName=="sintesisgto" && $strUserPassword=="cgcs1980gto"){
       $_SESSION['dpd']['logeo']=true;
     }
     else{
