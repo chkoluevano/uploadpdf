@@ -1,15 +1,7 @@
-<?php
-session_start();
-  if($_SESSION['dpd']['logeo']==false){
-   // header("Location: index.php"); 
-    //exit;
-  }
-?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>Sintesis</title>
 	<meta charset="UTF-8">
 	<script src="js/jquery-2.0.3.min.js"></script>
 	<script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-alert.js"></script>
@@ -52,6 +44,17 @@ session_start();
       }
       .marketing p + h4 {
         margin-top: 28px;
+      }
+      #mensaje{
+      color:white;
+        background-color:  #393a38;
+        font-weight:lighter;
+        font-size: 20px;
+        padding: 15px;
+        width: 400px;
+        margin: 0 auto 0 auto;
+        height: auto;
+
       }
     </style>
 	

@@ -8,14 +8,17 @@ $rows = array();
 	/* Portadas */
 	if(isset($_FILES["portadas"])){
 		$status="";
+		$code=0;
 		$nombre_final = uniqid() . "_portadas" . date('Y-m-d') . ".pdf";
 		if(mover_archivo($_FILES['portadas']['tmp_name'], 'uploads/' . $nombre_final)){
-			$status="se subío correctamente";		
+			$status="se subío correctamente";
+			$code=1;		
 		}
 		else{
 			$status="produjo un error, sube de nuevo este archivo";
+			$code=2;
 		}
-		$rows[] = array('tipo' => "portadas", "status" => $status, "nombre"=>$nombre_final);
+		$rows[] = array('tipo' => "portadas","code"=> $code, "status" => $status,"campo"=> "portadas", "nombre"=>$nombre_final);
 
 	}
 	else{
@@ -26,14 +29,17 @@ $rows = array();
 	/* Notas */
 	if(isset($_FILES["notas"])){
 		$status="";
+		$code=0;
 		$nombre_final = uniqid() . "_notas" . date('Y-m-d') . ".pdf";
 		if(mover_archivo($_FILES['notas']['tmp_name'], 'uploads/' . $nombre_final)){
 				$status="se subío correctamente";	
+				$code=1;
 			}
 			else{
+				$code=2;
 				$status="produjo un error, sube de nuevo este archivo";
 			}
-			$rows[] = array('tipo' => "notas", "status" => $status, "nombre"=>$nombre_final);
+			$rows[] = array('tipo' => "notas", "code"=>$code, "status" => $status, "campo"=> "ruta", "nombre"=>$nombre_final);
 	}
 	else{
 		//

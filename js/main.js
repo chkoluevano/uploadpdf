@@ -1,10 +1,11 @@
 $(document).ready(function(){	
+		$('#mensaje').hide();
 		$("#botonenviar").mouseover(function(){
 			$(this).css('cursor','pointer');
 		});
 	    
 	    $('#botonenviar').on('click',function(){
-	    	//var formulario = new FormData($("#frmCampana")[0]); 
+	    	$('#mensaje').show();
 	    	var formulario = new FormData(); 
 	    	formulario.append("portadas", $('#portadas')[0].files[0]);
 	    	formulario.append("notas", $('#notas')[0].files[0]);
@@ -22,7 +23,7 @@ $(document).ready(function(){
 				else{
 					if(ext!="pdf"){
 						_break=true;
-						$('#mensaje').html("Alerta: El archivo a cargar debe ser PDF");
+						$('#mensaje').html("El archivo a cargar debe ser PDF");
 						break;
 					}
 				}
@@ -45,13 +46,12 @@ $(document).ready(function(){
 			         	success: function(data){ 
 			         		$('#mensaje').html('');
 			            	var response = $.parseJSON(data);
-			            	//debugger;
 			            	response.forEach(function(r){
-			            		$('#mensaje').append("El archivo de " + r.tipo + " " + r.status + "<br>");
+			            		$('#mensaje').append("El archivo de " + r.tipo + " " + r.status + "<br><br>");
+			            		if (parseInt(r.code)==1){
+			            			UpdateParse(r.nombre, r.campo);
+			            		}
 			            	});
-			            	$('#loader').html("");
-			            	
-			            	
 			            }
 			   	 	}); 
 				}
@@ -61,7 +61,7 @@ $(document).ready(function(){
 });
 
 
-function UpdateParse(elemento){
+function UpdateParse(elemento, field){
 	$('#mensaje').html("Enviando archivo a la APP, no cierres el navegador");
 	Parse.$ = jQuery;
 	Parse.initialize("TbZLZ4cl77Zu34uyA4dGXOXEtGtheDj4CqxZiqIT","nKYsLG4xt2jIqpzk9GAdbZtxXoCmStP1lUihWWEZ");
@@ -70,7 +70,7 @@ function UpdateParse(elemento){
 	query.get("YP3bLvh8ii", {
 	  success: function(itemResult) {
 	  	item = itemResult
-	   	item.set("ruta", "http://gto1.mx/chko/uploadpdf/uploads/" + elemento);
+	   	item.set(field, "http://gto1.mx/chko/uploadpdf/uploads/" + elemento);
 	   	item.save();
 	   	$('#mensaje').html("Archivo enviado satisfactoriamente..");
 	   	$('#loader').html("");
