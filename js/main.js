@@ -75,7 +75,7 @@ function UpdateParse(elemento, field){
 	query.get("YP3bLvh8ii", {
 	  success: function(itemResult) {
 	  	item = itemResult
-	   	item.set(field, "http://gto1.mx/chko/uploadpdf/uploads/" + elemento);
+	   	item.set(field, "http://gto1.mx/sintesisgto/uploads/" + elemento);
 	   	item.save();
 	   	$('#mensaje').html("Archivo enviado satisfactoriamente..");
 	   	$('#loader').html("");
